@@ -1,0 +1,292 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.API\\MovieBookingSystem.API.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.API\\MovieBookingSystem.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.API\\MovieBookingSystem.API.csproj",
+        "projectName": "MovieBookingSystem.API",
+        "projectPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.API\\MovieBookingSystem.API.csproj",
+        "packagesPath": "C:\\Users\\Romeu Garcia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Romeu Garcia\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Application\\MovieBookingSystem.Application.csproj": {
+                "projectPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Application\\MovieBookingSystem.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.428\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Application\\MovieBookingSystem.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Application\\MovieBookingSystem.Application.csproj",
+        "projectName": "MovieBookingSystem.Application",
+        "projectPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Application\\MovieBookingSystem.Application.csproj",
+        "packagesPath": "C:\\Users\\Romeu Garcia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Romeu Garcia\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Domain\\MovieBookingSystem.Domain.csproj": {
+                "projectPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Domain\\MovieBookingSystem.Domain.csproj"
+              },
+              "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Infrastructure\\MovieBookingSystem.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Infrastructure\\MovieBookingSystem.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.5.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.428\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Domain\\MovieBookingSystem.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Domain\\MovieBookingSystem.Domain.csproj",
+        "projectName": "MovieBookingSystem.Domain",
+        "projectPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Domain\\MovieBookingSystem.Domain.csproj",
+        "packagesPath": "C:\\Users\\Romeu Garcia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Romeu Garcia\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.428\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Infrastructure\\MovieBookingSystem.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Infrastructure\\MovieBookingSystem.Infrastructure.csproj",
+        "projectName": "MovieBookingSystem.Infrastructure",
+        "projectPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Infrastructure\\MovieBookingSystem.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Romeu Garcia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Romeu Garcia\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Domain\\MovieBookingSystem.Domain.csproj": {
+                "projectPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Domain\\MovieBookingSystem.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.428\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
