@@ -152,16 +152,15 @@ namespace MovieBookingSystem.Application.Services
             return _mapper.Map<IEnumerable<ShowtimeDto>>(showtimes);
         }
 
-        public async Task<UserDto> LoginAsync(string username, string password)
+        public async Task<UserDto> LoginAsync(string email, string password)
         {
-            // Validação de credenciais
-            var user = await _unitOfWork.Users.GetByUsernameAsync(username);
+            // Changed from username to email to match the interface
+            var user = await _unitOfWork.Users.GetByEmailAsync(email);
             if (user == null || !VerifyPassword(password, user.PasswordHash))
                 return null;
 
             return _mapper.Map<UserDto>(user);
         }
-
 
     }
 }

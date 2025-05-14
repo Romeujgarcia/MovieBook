@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using MovieBookingSystem.Api.Models;
 using MovieBookingSystem.Application.DTOs;
 using MovieBookingSystem.Application.Interfaces;
+using MovieBookingSystem.Infrastructure.Services; // Adicione esta linha
+using MovieBookingSystem.Domain.Entities;
 using System;
 using System.Threading.Tasks;
 
@@ -14,9 +16,12 @@ namespace MovieBookingSystem.Api.Controllers
     {
         private readonly IUserService _userService;
 
-        public UsersController(IUserService userService)
+        private readonly IJwtService _jwtService;
+
+        public UsersController(IUserService userService, IJwtService jwtService)
         {
             _userService = userService;
+            _jwtService = jwtService;
         }
 
         /// <summary>
@@ -40,21 +45,36 @@ namespace MovieBookingSystem.Api.Controllers
         [ProducesResponseType(typeof(ApiResponse), 401)]
         public async Task<IActionResult> Login([FromBody] LoginUserDto loginDto)
         {
-            // Verifique se o loginDto não é nulo
-            if (loginDto == null)
+            // Obter o UserDto do serviço
+            var result = await _userService.LoginAsync(loginDto.Email, loginDto.Password);
+
+            // Criar um User para passar para o gerador de token
+            var user = new User
             {
-                return BadRequest(ApiResponse.ErrorResponse("Invalid login request"));
-            }
-             // Chame o método LoginAsync com email e password
-            var result = await _userService.LoginAsync(loginDto.Email, loginDto.Password); 
-            if (result == null)
+                Id = result.Id, // Accessing the Id directly from result
+                UserName = result.UserName,
+                Email = result.Email,
+                IsAdmin = result.IsAdmin, // Ensure this property exists in UserDto
+                FullName = result.FullName,
+                CreatedAt = result.CreatedAt
+            };
+
+            var token = _jwtService.GenerateToken(user, result.Roles); // Use the user object created above
+
+            // Create the response DTO
+            var response = new LoginResponseDto
             {
-                return Unauthorized(ApiResponse.ErrorResponse("Invalid email or password"));
-            }
-            return Ok(ApiResponse.SuccessResponse("Login successful", result));
+                User = result, // Assign the UserDto
+                Token = token // Assign the generated token
+            };
+
+            return Ok(ApiResponse.SuccessResponse("Login successful", response));
         }
 
-        /// <summary>
+
+
+
+        /// <summary> 
         /// Obtém o perfil do usuário autenticado
         /// </summary>
         [HttpGet("profile")]

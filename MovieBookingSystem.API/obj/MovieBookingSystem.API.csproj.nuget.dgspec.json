@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Api\\MovieBookingSystem.API.csproj": {}
+    "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.API\\MovieBookingSystem.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Api\\MovieBookingSystem.API.csproj": {
+    "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.API\\MovieBookingSystem.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Api\\MovieBookingSystem.API.csproj",
+        "projectUniqueName": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.API\\MovieBookingSystem.API.csproj",
         "projectName": "MovieBookingSystem.API",
-        "projectPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Api\\MovieBookingSystem.API.csproj",
+        "projectPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.API\\MovieBookingSystem.API.csproj",
         "packagesPath": "C:\\Users\\Romeu Garcia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Api\\obj\\",
+        "outputPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Romeu Garcia\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -28,6 +28,9 @@
             "projectReferences": {
               "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Application\\MovieBookingSystem.Application.csproj": {
                 "projectPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Application\\MovieBookingSystem.Application.csproj"
+              },
+              "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Infrastructure\\MovieBookingSystem.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Infrastructure\\MovieBookingSystem.Infrastructure.csproj"
               }
             }
           }
@@ -52,7 +55,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[8.1.1, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

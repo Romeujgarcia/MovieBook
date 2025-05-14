@@ -15,7 +15,6 @@ namespace MovieBookingSystem.Application.Interfaces
         Task<UserDto> UpdateAsync(Guid id, UpdateUserDto updateDto);
         Task DeleteAsync(Guid id);
         Task<bool> ValidateCredentialsAsync(string email, string password);
-
         Task<UserDto> LoginAsync(string email, string password);
     }
 }

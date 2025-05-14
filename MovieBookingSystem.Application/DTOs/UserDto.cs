@@ -7,8 +7,10 @@ namespace MovieBookingSystem.Application.DTOs
         public Guid Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
+        public bool IsAdmin { get; set; } // Add this line if you need IsAdmin
         public string FullName { get; set; }
         public DateTime CreatedAt { get; set; }
+        public List<string> Roles { get; set; } = new List<string>();
     }
 
     public class RegisterUserDto
@@ -31,5 +33,14 @@ namespace MovieBookingSystem.Application.DTOs
     {
         public string Email { get; set; }
         public string Password { get; set; }
+       
+
+        
+    }
+
+    public class LoginResponseDto
+    {
+        public UserDto User { get; set; } // Include the user information
+        public string Token { get; set; } // Include the token
     }
 }

@@ -21,10 +21,9 @@ namespace MovieBookingSystem.Infrastructure.Repositories
         {
             return await _context.Users.FindAsync(id);
         }
-
-        public async Task<User> GetByEmailAsync(string email)
+         public async Task<User> GetByEmailAsync(string email)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == email.ToLower());
         }
 
         public async Task<User> GetByUsernameAsync(string username)

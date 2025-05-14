@@ -20,9 +20,9 @@ namespace MovieBookingSystem.Api.Extensions
                     Description = "API for movie booking system",
                     Contact = new OpenApiContact
                     {
-                        Name = "Your Name",
-                        Email = "your.email@example.com",
-                        Url = new Uri("https://github.com/yourusername")
+                        Name = "Romeu Garcia",
+                        Email = "romeujgarcia@hotmail.com",
+                        Url = new Uri("https://github.com/RomeujGarcia")
                     }
                 });
 
