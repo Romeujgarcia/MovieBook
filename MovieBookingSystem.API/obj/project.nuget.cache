@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "zv8mcEXagQUfFg7NMNy2QfW+JTkcABmT/uvm3wGYFr2SnlQUisAXnjL7anPtMsRuOWh2/nEei7XekDVzwIFEwA==",
+  "dgSpecHash": "PDs5kXXoRxkmPkm9TnTZus5FpnssGmCyO/5+MXBcxJwoqdohuxrKiA53GZkWdTg0zlAG1k8BkSarQ2+LLtDHQg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.API\\MovieBookingSystem.API.csproj",
+  "projectFilePath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Api\\MovieBookingSystem.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
-    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\fluentvalidation\\6.0.0\\fluentvalidation.6.0.0.nupkg.sha512",
+    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
+    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.6\\fluentvalidation.dependencyinjectionextensions.10.3.6.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\mediatr\\12.5.0\\mediatr.12.5.0.nupkg.sha512",
-    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.3.0\\microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.3.0\\microsoft.aspnetcore.authentication.core.2.3.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.0\\microsoft.aspnetcore.authentication.jwtbearer.6.0.0.nupkg.sha512",
@@ -49,7 +51,7 @@
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.0\\microsoft.extensions.caching.memory.6.0.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.1\\microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
-    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.4\\microsoft.extensions.dependencyinjection.abstractions.9.0.4.nupkg.sha512",
+    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.extensions.dependencymodel\\2.1.0\\microsoft.extensions.dependencymodel.2.1.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.extensions.diagnostics.abstractions\\8.0.1\\microsoft.extensions.diagnostics.abstractions.8.0.1.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\8.0.0\\microsoft.extensions.fileproviders.abstractions.8.0.0.nupkg.sha512",
@@ -136,16 +138,5 @@
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'FluentValidation 6.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "FluentValidation",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

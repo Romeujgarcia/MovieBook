@@ -11,5 +11,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MovieBookingSystem.Application\MovieBookingSystem.Application.csproj"/>
+    <ProjectReference Include="..\MovieBookingSystem.Application\MovieBookingSystem.Application.csproj" />
+
   </ItemGroup>
 </Project>
+ 

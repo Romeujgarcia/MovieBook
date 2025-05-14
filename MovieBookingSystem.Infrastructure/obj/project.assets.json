@@ -664,11 +664,11 @@
           }
         }
       },
-      "System.IdentityModel.Tokens.Jwt/6.5.0": {
+      "System.IdentityModel.Tokens.Jwt/6.8.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.JsonWebTokens": "6.5.0",
-          "Microsoft.IdentityModel.Tokens": "6.5.0"
+          "Microsoft.IdentityModel.JsonWebTokens": "6.8.0",
+          "Microsoft.IdentityModel.Tokens": "6.8.0"
         },
         "compile": {
           "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {
@@ -1808,10 +1808,10 @@
         "version.txt"
       ]
     },
-    "System.IdentityModel.Tokens.Jwt/6.5.0": {
-      "sha512": "x1I1BcZrgF8CPWuR8pu6ip9wiQVSULozPSJLyAwMPt6f9bW8/u43OGxiaqLHnA0ybHrpOz3Misiu/D97gsYb+A==",
+    "System.IdentityModel.Tokens.Jwt/6.8.0": {
+      "sha512": "5tBCjAub2Bhd5qmcd0WhR5s354e4oLYa//kOWrkX+6/7ZbDDJjMTfwLSOiZ/MMpWdE4DWPLOfTLOq/juj9CKzA==",
       "type": "package",
-      "path": "system.identitymodel.tokens.jwt/6.5.0",
+      "path": "system.identitymodel.tokens.jwt/6.8.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1821,7 +1821,7 @@
         "lib/net461/System.IdentityModel.Tokens.Jwt.xml",
         "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll",
         "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.xml",
-        "system.identitymodel.tokens.jwt.6.5.0.nupkg.sha512",
+        "system.identitymodel.tokens.jwt.6.8.0.nupkg.sha512",
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
@@ -2195,7 +2195,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.0",
       "MovieBookingSystem.Domain >= 1.0.0",
-      "System.IdentityModel.Tokens.Jwt >= 6.5.0"
+      "System.IdentityModel.Tokens.Jwt >= 6.8.0"
     ]
   },
   "packageFolders": {
@@ -2257,7 +2257,7 @@
           },
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
-            "version": "[6.5.0, )"
+            "version": "[6.8.0, )"
           }
         },
         "imports": [
@@ -2279,16 +2279,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.428\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Detected package downgrade: System.IdentityModel.Tokens.Jwt from 6.8.0 to 6.5.0. Reference the package directly from the project to select a different version. \r\n MovieBookingSystem.Infrastructure -> Microsoft.EntityFrameworkCore.SqlServer 6.0.0 -> Microsoft.Data.SqlClient 2.1.4 -> Microsoft.IdentityModel.Protocols.OpenIdConnect 6.8.0 -> System.IdentityModel.Tokens.Jwt (>= 6.8.0) \r\n MovieBookingSystem.Infrastructure -> System.IdentityModel.Tokens.Jwt (>= 6.5.0)",
-      "libraryId": "System.IdentityModel.Tokens.Jwt",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }

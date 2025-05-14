@@ -9,7 +9,7 @@ namespace MovieBookingSystem.Domain.Entities
         public Guid UserId { get; set; }
         public Guid ShowtimeId { get; set; }
         public DateTime ReservationDate { get; set; }
-        public decimal TotalAmount { get; set; }
+        public decimal TotalPrice { get; set; }
         public ReservationStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

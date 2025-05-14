@@ -1,0 +1,17 @@
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\obj\Debug\net6.0\MovieBookingSystem.Application.csproj.AssemblyReference.cache
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\obj\Debug\net6.0\MovieBookingSystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\obj\Debug\net6.0\MovieBookingSystem.Application.AssemblyInfoInputs.cache
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\obj\Debug\net6.0\MovieBookingSystem.Application.AssemblyInfo.cs
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\obj\Debug\net6.0\MovieBookingSystem.Application.csproj.CoreCompileInputs.cache
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\bin\Debug\net6.0\MovieBookingSystem.Application.deps.json
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\bin\Debug\net6.0\MovieBookingSystem.Application.dll
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\bin\Debug\net6.0\MovieBookingSystem.Application.pdb
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\bin\Debug\net6.0\MovieBookingSystem.Domain.dll
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\bin\Debug\net6.0\MovieBookingSystem.Infrastructure.dll
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\bin\Debug\net6.0\MovieBookingSystem.Domain.pdb
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\bin\Debug\net6.0\MovieBookingSystem.Infrastructure.pdb
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\obj\Debug\net6.0\MovieBookingSystem.Application.csproj.CopyComplete
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\obj\Debug\net6.0\MovieBookingSystem.Application.dll
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\obj\Debug\net6.0\refint\MovieBookingSystem.Application.dll
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\obj\Debug\net6.0\MovieBookingSystem.Application.pdb
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Application\obj\Debug\net6.0\ref\MovieBookingSystem.Application.dll

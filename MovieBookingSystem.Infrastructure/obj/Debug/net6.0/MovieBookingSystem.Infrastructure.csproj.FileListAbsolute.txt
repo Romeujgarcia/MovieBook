@@ -1,0 +1,17 @@
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\obj\Debug\net6.0\MovieBookingSystem.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\obj\Debug\net6.0\MovieBookingSystem.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\obj\Debug\net6.0\MovieBookingSystem.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\obj\Debug\net6.0\MovieBookingSystem.Infrastructure.AssemblyInfo.cs
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\obj\Debug\net6.0\MovieBookingSystem.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\bin\Debug\net6.0\MovieBookingSystem.Infrastructure.deps.json
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\bin\Debug\net6.0\MovieBookingSystem.Infrastructure.runtimeconfig.json
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\bin\Debug\net6.0\MovieBookingSystem.Infrastructure.dll
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\bin\Debug\net6.0\MovieBookingSystem.Infrastructure.pdb
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\bin\Debug\net6.0\MovieBookingSystem.Domain.dll
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\bin\Debug\net6.0\MovieBookingSystem.Domain.pdb
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\obj\Debug\net6.0\MovieBookingSystem.Infrastructure.csproj.CopyComplete
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\obj\Debug\net6.0\MovieBookingSystem.Infrastructure.dll
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\obj\Debug\net6.0\refint\MovieBookingSystem.Infrastructure.dll
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\obj\Debug\net6.0\MovieBookingSystem.Infrastructure.pdb
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\obj\Debug\net6.0\MovieBookingSystem.Infrastructure.genruntimeconfig.cache
+C:\Users\Romeu Garcia\Downloads\Estudo\Net  6\MovieBook\MovieBookingSystem.Infrastructure\obj\Debug\net6.0\ref\MovieBookingSystem.Infrastructure.dll

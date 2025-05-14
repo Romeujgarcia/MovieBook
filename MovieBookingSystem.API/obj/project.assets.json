@@ -31,66 +31,33 @@
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
-      "FluentValidation/6.0.0": {
+      "FluentValidation/10.3.6": {
         "type": "package",
         "compile": {
-          "lib/Net45/FluentValidation.dll": {
-            "related": ".pdb;.XML"
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
           }
         },
         "runtime": {
-          "lib/Net45/FluentValidation.dll": {
-            "related": ".pdb;.XML"
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FluentValidation.DependencyInjectionExtensions/10.3.6": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "10.3.6",
+          "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
           }
         },
-        "resource": {
-          "lib/Net45/cs/FluentValidation.resources.dll": {
-            "locale": "cs"
-          },
-          "lib/Net45/da/FluentValidation.resources.dll": {
-            "locale": "da"
-          },
-          "lib/Net45/de/FluentValidation.resources.dll": {
-            "locale": "de"
-          },
-          "lib/Net45/es/FluentValidation.resources.dll": {
-            "locale": "es"
-          },
-          "lib/Net45/fi/FluentValidation.resources.dll": {
-            "locale": "fi"
-          },
-          "lib/Net45/fr/FluentValidation.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/Net45/it/FluentValidation.resources.dll": {
-            "locale": "it"
-          },
-          "lib/Net45/ko/FluentValidation.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/Net45/mk/FluentValidation.resources.dll": {
-            "locale": "mk"
-          },
-          "lib/Net45/nl/FluentValidation.resources.dll": {
-            "locale": "nl"
-          },
-          "lib/Net45/pl/FluentValidation.resources.dll": {
-            "locale": "pl"
-          },
-          "lib/Net45/pt/FluentValidation.resources.dll": {
-            "locale": "pt"
-          },
-          "lib/Net45/ru/FluentValidation.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/Net45/sv/FluentValidation.resources.dll": {
-            "locale": "sv"
-          },
-          "lib/Net45/tr/FluentValidation.resources.dll": {
-            "locale": "tr"
-          },
-          "lib/Net45/zh-CN/FluentValidation.resources.dll": {
-            "locale": "zh-CN"
+        "runtime": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -107,24 +74,23 @@
           }
         }
       },
-      "MediatR/12.5.0": {
+      "MediatR/10.0.1": {
         "type": "package",
         "dependencies": {
-          "MediatR.Contracts": "[2.0.1, 3.0.0)",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+          "MediatR.Contracts": "1.0.1"
         },
         "compile": {
-          "lib/net6.0/MediatR.dll": {
+          "lib/netstandard2.1/MediatR.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/MediatR.dll": {
+          "lib/netstandard2.1/MediatR.dll": {
             "related": ".xml"
           }
         }
       },
-      "MediatR.Contracts/2.0.1": {
+      "MediatR.Contracts/1.0.1": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/MediatR.Contracts.dll": {
@@ -135,6 +101,19 @@
           "lib/netstandard2.0/MediatR.Contracts.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "MediatR.Extensions.Microsoft.DependencyInjection/10.0.1": {
+        "type": "package",
+        "dependencies": {
+          "MediatR": "10.0.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authentication.Abstractions/2.3.0": {
@@ -827,20 +806,20 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.4": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets": {}
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "Microsoft.Extensions.DependencyModel/2.1.0": {
@@ -2335,10 +2314,13 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "AutoMapper": "6.0.0",
-          "FluentValidation": "6.0.0",
-          "MediatR": "12.5.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.4",
+          "AutoMapper": "11.0.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "FluentValidation": "10.3.6",
+          "FluentValidation.DependencyInjectionExtensions": "10.3.6",
+          "MediatR": "10.0.1",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "MovieBookingSystem.Domain": "1.0.0",
           "MovieBookingSystem.Infrastructure": "1.0.0"
         },
@@ -2368,7 +2350,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.0",
           "MovieBookingSystem.Domain": "1.0.0",
-          "System.IdentityModel.Tokens.Jwt": "6.5.0"
+          "System.IdentityModel.Tokens.Jwt": "6.8.0"
         },
         "compile": {
           "bin/placeholder/MovieBookingSystem.Infrastructure.dll": {}
@@ -2409,65 +2391,42 @@
         "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
       ]
     },
-    "FluentValidation/6.0.0": {
-      "sha512": "hqXQIZrjh1Z5p91TdqMo494FT49tkVX5DgkECl0wug6ctJj12wUTwudMAj0VQlqRoxTIMDYMQFIsQmdJV292aQ==",
+    "FluentValidation/10.3.6": {
+      "sha512": "iMd370ZDx6ydm8t7bIFdRbSKX0e42lpvCtifUSbTSXOk5iKjmgl7HU0PXBhIWQAyIRi3gCwfMI9luj8H6K+byw==",
       "type": "package",
-      "path": "fluentvalidation/6.0.0",
+      "path": "fluentvalidation/10.3.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "fluentvalidation.6.0.0.nupkg.sha512",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.10.3.6.nupkg.sha512",
         "fluentvalidation.nuspec",
-        "lib/Net45/FluentValidation.XML",
-        "lib/Net45/FluentValidation.dll",
-        "lib/Net45/FluentValidation.pdb",
-        "lib/Net45/cs/FluentValidation.resources.dll",
-        "lib/Net45/da/FluentValidation.resources.dll",
-        "lib/Net45/de/FluentValidation.resources.dll",
-        "lib/Net45/es/FluentValidation.resources.dll",
-        "lib/Net45/fi/FluentValidation.resources.dll",
-        "lib/Net45/fr/FluentValidation.resources.dll",
-        "lib/Net45/it/FluentValidation.resources.dll",
-        "lib/Net45/ko/FluentValidation.resources.dll",
-        "lib/Net45/mk/FluentValidation.resources.dll",
-        "lib/Net45/nl/FluentValidation.resources.dll",
-        "lib/Net45/pl/FluentValidation.resources.dll",
-        "lib/Net45/pt/FluentValidation.resources.dll",
-        "lib/Net45/ru/FluentValidation.resources.dll",
-        "lib/Net45/sv/FluentValidation.resources.dll",
-        "lib/Net45/tr/FluentValidation.resources.dll",
-        "lib/Net45/zh-CN/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/FluentValidation.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/FluentValidation.pdb",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/cs/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/da/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/de/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/es/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/fi/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/fr/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/it/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/nl/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/pl/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/pt/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/ru/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/sv/FluentValidation.resources.dll",
-        "lib/portable-net40+sl50+wp80+win8+wpa81/zh-CN/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/FluentValidation.XML",
-        "lib/portable-net45+wp80+win8+wpa81/FluentValidation.dll",
-        "lib/portable-net45+wp80+win8+wpa81/FluentValidation.pdb",
-        "lib/portable-net45+wp80+win8+wpa81/cs/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/da/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/de/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/es/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/fi/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/fr/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/it/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/nl/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/pl/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/pt/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/ru/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/sv/FluentValidation.resources.dll",
-        "lib/portable-net45+wp80+win8+wpa81/zh-CN/FluentValidation.resources.dll"
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
+      ]
+    },
+    "FluentValidation.DependencyInjectionExtensions/10.3.6": {
+      "sha512": "yMwmbr+sHP/VLRQPTBVcgbJmtP5PGmxzNsqVX7FccDRwDB2edP8XsXWLNTZ4UwrslU1qQUD07BNQLDh7WXzpNw==",
+      "type": "package",
+      "path": "fluentvalidation.dependencyinjectionextensions/10.3.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.dependencyinjectionextensions.10.3.6.nupkg.sha512",
+        "fluentvalidation.dependencyinjectionextensions.nuspec",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml",
+        "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.xml"
       ]
     },
     "Humanizer.Core/2.8.26": {
@@ -2486,35 +2445,47 @@
         "logo.png"
       ]
     },
-    "MediatR/12.5.0": {
-      "sha512": "vqm2H8/nqL5NAJHPhsG1JOPwfkmbVrPyh4svdoRzu+uZh6Ex7PRoHBGsLYC0/RWCEJFqD1ohHNpteQvql9OktA==",
+    "MediatR/10.0.1": {
+      "sha512": "vnjbk4giDJzJelh34Ygt0eorApCKrRFB7j0pauFPY1oxfO3cEZ7FugBrIOjCM76SDGTOmPFfbfmVnz1t3iFrGA==",
       "type": "package",
-      "path": "mediatr/12.5.0",
+      "path": "mediatr/10.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "README.md",
         "gradient_128x128.png",
-        "lib/net6.0/MediatR.dll",
-        "lib/net6.0/MediatR.xml",
-        "lib/netstandard2.0/MediatR.dll",
-        "lib/netstandard2.0/MediatR.xml",
-        "mediatr.12.5.0.nupkg.sha512",
+        "lib/netstandard2.1/MediatR.dll",
+        "lib/netstandard2.1/MediatR.xml",
+        "mediatr.10.0.1.nupkg.sha512",
         "mediatr.nuspec"
       ]
     },
-    "MediatR.Contracts/2.0.1": {
-      "sha512": "FYv95bNT4UwcNA+G/J1oX5OpRiSUxteXaUt2BJbRSdRNiIUNbggJF69wy6mnk2wYToaanpdXZdCwVylt96MpwQ==",
+    "MediatR.Contracts/1.0.1": {
+      "sha512": "NsRvOxthhkYml4DcBMyJsmym8C4MchioH7wxKVPEg7plFj9Euh/i4IcmZ3Gvgx6+K8obeuhPeJdoBl56wnuo3A==",
       "type": "package",
-      "path": "mediatr.contracts/2.0.1",
+      "path": "mediatr.contracts/1.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "gradient_128x128.png",
+        "lib/net461/MediatR.Contracts.dll",
+        "lib/net461/MediatR.Contracts.xml",
         "lib/netstandard2.0/MediatR.Contracts.dll",
         "lib/netstandard2.0/MediatR.Contracts.xml",
-        "mediatr.contracts.2.0.1.nupkg.sha512",
+        "mediatr.contracts.1.0.1.nupkg.sha512",
         "mediatr.contracts.nuspec"
+      ]
+    },
+    "MediatR.Extensions.Microsoft.DependencyInjection/10.0.1": {
+      "sha512": "mYdfMvpkahCAj4tRfBoeMlUBZa2WthaONdQ4y5TtIyxcZYb5e7AE7c1eITTZVWcQhguxvD8AdExdaiAW6RhrVA==",
+      "type": "package",
+      "path": "mediatr.extensions.microsoft.dependencyinjection/10.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gradient_128x128.png",
+        "lib/netstandard2.1/MediatR.Extensions.Microsoft.DependencyInjection.dll",
+        "mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
+        "mediatr.extensions.microsoft.dependencyinjection.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.3.0": {
@@ -3443,10 +3414,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.4": {
-      "sha512": "UI0TQPVkS78bFdjkTodmkH0Fe8lXv9LnhGFKgKrsgUJ5a5FVdFRcgjIkBVLbGgdRhxWirxH/8IXUtEyYJx6GQg==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+      "sha512": "3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/9.0.4",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3456,19 +3427,21 @@
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net8.0/_._",
+        "buildTransitive/net6.0/_._",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
         "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "microsoft.extensions.dependencyinjection.abstractions.9.0.4.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -7136,17 +7109,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.428\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'FluentValidation 6.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "FluentValidation",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }

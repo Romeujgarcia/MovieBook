@@ -16,5 +16,6 @@ namespace MovieBookingSystem.Domain.Interfaces
         Task DeleteAsync(Guid id);
         Task<bool> ReserveSeatAsync(Guid seatId);
         Task<bool> ReleaseSeatAsync(Guid seatId);
+        Task<IEnumerable<Seat>> GetByIdsAsync(IEnumerable<Guid> ids);
     }
 }

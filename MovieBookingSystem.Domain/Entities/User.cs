@@ -10,6 +10,7 @@ namespace MovieBookingSystem.Domain.Entities
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public bool IsAdmin { get; set; }
+        public string FullName { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         
