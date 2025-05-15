@@ -7,7 +7,7 @@ using MovieBookingSystem.Api.Middleware;
 using MovieBookingSystem.Application;
 using MovieBookingSystem.Infrastructure;
 using System.Text.Json.Serialization;
-using MovieBookingSystem.Infrastructure.Services; // Add this line
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,8 +35,6 @@ builder.Services.AddInfrastructure(builder.Configuration);
 // Adicionar HttpContextAccessor
 builder.Services.AddHttpContextAccessor();
 
-// Register IJwtService and its implementation
-builder.Services.AddScoped<IJwtService, JwtService>();
 
 var app = builder.Build();
 

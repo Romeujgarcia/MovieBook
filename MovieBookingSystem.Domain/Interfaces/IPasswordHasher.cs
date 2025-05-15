@@ -1,4 +1,4 @@
-namespace MovieBookingSystem.Infrastructure.Services
+namespace MovieBookingSystem.Domain.Interfaces
 {
     public interface IPasswordHasher
     {

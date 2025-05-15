@@ -22,7 +22,7 @@ namespace MovieBookingSystem.Application.DTOs
         public string Description { get; set; }
         public int DurationMinutes { get; set; }
         public string Director { get; set; }
-        public string PosterUrl { get; set; }
+        public string PosterUrl { get; set; } // Este é o campo que você está enviando
         public string TrailerUrl { get; set; }
         public DateTime ReleaseDate { get; set; }
         public List<Guid> GenreIds { get; set; }

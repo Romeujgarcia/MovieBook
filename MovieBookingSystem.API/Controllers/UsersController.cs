@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MovieBookingSystem.Api.Models;
 using MovieBookingSystem.Application.DTOs;
 using MovieBookingSystem.Application.Interfaces;
-using MovieBookingSystem.Infrastructure.Services; // Adicione esta linha
+using MovieBookingSystem.Domain.Interfaces;
 using MovieBookingSystem.Domain.Entities;
 using System;
 using System.Threading.Tasks;
@@ -83,8 +83,18 @@ namespace MovieBookingSystem.Api.Controllers
         [ProducesResponseType(typeof(ApiResponse), 401)]
         public async Task<IActionResult> GetProfile()
         {
-            var userId = (Guid)HttpContext.Items["UserId"];
-            var user = await _userService.GetByIdAsync(userId);
+ 
+            if (!HttpContext.Items.ContainsKey("UserId"))
+    {
+        return Unauthorized("User  not authenticated.");
+    }
+    var userId = (Guid)HttpContext.Items["UserId"];
+    var user = await _userService.GetByIdAsync(userId);
+    
+    if (user == null)
+    {
+        return NotFound("User  not found.");
+    }
             return Ok(ApiResponse.SuccessResponse("User profile retrieved successfully", user));
         }
 

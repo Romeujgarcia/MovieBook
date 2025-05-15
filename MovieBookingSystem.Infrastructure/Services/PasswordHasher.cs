@@ -1,6 +1,7 @@
 using System;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using MovieBookingSystem.Domain.Interfaces;
 
 namespace MovieBookingSystem.Infrastructure.Services
 {

@@ -19,6 +19,7 @@ namespace MovieBookingSystem.Application.DTOs
         public string Email { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }
+        //public bool IsAdmin { get; set; } // Nova propriedade para indicar se é admin
     }
 
     public class UpdateUserDto

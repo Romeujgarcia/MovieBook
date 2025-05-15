@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using MovieBookingSystem.Domain.Entities;
 
-namespace MovieBookingSystem.Infrastructure.Services
+namespace MovieBookingSystem.Domain.Interfaces
 {
     public interface IJwtService
     {

@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using MovieBookingSystem.Application.Settings; // Verifique se este namespace está correto
+using MovieBookingSystem.Application.Settings;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims; // Adicione esta linha para importar o namespace ClaimTypes
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,13 +54,17 @@ namespace MovieBookingSystem.Api.Middleware
                 }, out SecurityToken validatedToken);
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
-                var userId = Guid.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
+                
+                // Agora ClaimTypes estará disponível
+                var userId = Guid.Parse(jwtToken.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value);
 
                 // Anexar o ID do usuário ao contexto para uso nos controladores
                 context.Items["UserId"] = userId;
             }
-            catch
+            catch (Exception ex)
             {
+                // Opcionalmente, adicione log do erro
+                // _logger.LogError($"JWT Token validation failed: {ex.Message}");
                 // Falha na validação do token - não anexar nada ao contexto
             }
         }

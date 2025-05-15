@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MovieBookingSystem.Domain.Interfaces;
 using MovieBookingSystem.Infrastructure.Data;
 using MovieBookingSystem.Infrastructure.Repositories;
+using MovieBookingSystem.Infrastructure.Services; 
 
 namespace MovieBookingSystem.Infrastructure
 {
@@ -27,6 +28,11 @@ namespace MovieBookingSystem.Infrastructure
             
             // Registrar UnitOfWork
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            // Register IJwtService and its implementation
+           services.AddScoped<IJwtService, JwtService>();
+            // Dentro do método ConfigureServices
+           services.AddScoped<IPasswordHasher, PasswordHasher>();
 
             return services;
         }

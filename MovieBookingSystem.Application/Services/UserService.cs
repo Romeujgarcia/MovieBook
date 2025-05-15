@@ -3,6 +3,7 @@ using MovieBookingSystem.Application.DTOs;
 using MovieBookingSystem.Application.Interfaces;
 using MovieBookingSystem.Domain.Entities;
 using MovieBookingSystem.Domain.Interfaces;
+using MovieBookingSystem.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -15,11 +16,13 @@ namespace MovieBookingSystem.Application.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IPasswordHasher _passwordHasher;
 
-        public UserService(IUnitOfWork unitOfWork, IMapper mapper)
+        public UserService(IUnitOfWork unitOfWork, IMapper mapper, IPasswordHasher passwordHasher)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _passwordHasher = passwordHasher;
         }
 
         public async Task<UserDto> GetByIdAsync(Guid id)
@@ -62,8 +65,11 @@ namespace MovieBookingSystem.Application.Services
             user.Id = Guid.NewGuid();
             user.CreatedAt = DateTime.UtcNow;
 
+             // Set IsAdmin based on the DTO
+            //user.IsAdmin = registerDto.IsAdmin; // Define se é admin com base no DTO
+
             // Hash the password
-            user.PasswordHash = HashPassword(registerDto.Password);
+            user.PasswordHash = _passwordHasher.HashPassword(registerDto.Password);
 
             // Add user to repository
             await _unitOfWork.Users.AddAsync(user);
@@ -81,14 +87,14 @@ namespace MovieBookingSystem.Application.Services
             // Validate current password if provided
             if (!string.IsNullOrEmpty(updateDto.CurrentPassword))
             {
-                bool validPassword = VerifyPassword(updateDto.CurrentPassword, user.PasswordHash);
+                bool validPassword = _passwordHasher.VerifyPassword(updateDto.CurrentPassword, user.PasswordHash);
                 if (!validPassword)
                     throw new ApplicationException("Invalid current password");
 
                 // Update password if new password is provided
                 if (!string.IsNullOrEmpty(updateDto.NewPassword))
                 {
-                    user.PasswordHash = HashPassword(updateDto.NewPassword);
+                    user.PasswordHash = _passwordHasher.HashPassword(updateDto.NewPassword);
                 }
             }
 
@@ -121,30 +127,12 @@ namespace MovieBookingSystem.Application.Services
         public async Task<bool> ValidateCredentialsAsync(string email, string password)
         {
             var user = await _unitOfWork.Users.GetByEmailAsync(email);
-            if (user == null)
+            if (user == null) 
                 return false;
 
-            return VerifyPassword(password, user.PasswordHash);
+            return _passwordHasher.VerifyPassword(password, user.PasswordHash);
         }
 
-        private string HashPassword(string password)
-        {
-            using (var sha256 = SHA256.Create())
-            {
-                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return Convert.ToBase64String(hashedBytes);
-            }
-        }
-
-        private bool VerifyPassword(string password, string storedHash)
-        {
-            using (var sha256 = SHA256.Create())
-            {
-                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                var hash = Convert.ToBase64String(hashedBytes);
-                return hash == storedHash;
-            }
-        }
 
         public async Task<IEnumerable<ShowtimeDto>> GetByMovieAndDateAsync(Guid movieId, DateTime date)
         {
@@ -156,11 +144,12 @@ namespace MovieBookingSystem.Application.Services
         {
             // Changed from username to email to match the interface
             var user = await _unitOfWork.Users.GetByEmailAsync(email);
-            if (user == null || !VerifyPassword(password, user.PasswordHash))
+            if (user == null || !_passwordHasher.VerifyPassword(user.PasswordHash, password))// Use _passwordHasher
                 return null;
 
             return _mapper.Map<UserDto>(user);
         }
 
     }
-}
+}   
+ 

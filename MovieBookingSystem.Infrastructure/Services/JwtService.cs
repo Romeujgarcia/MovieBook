@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MovieBookingSystem.Domain.Entities;
+using MovieBookingSystem.Domain.Interfaces;
 
 namespace MovieBookingSystem.Infrastructure.Services
 {
