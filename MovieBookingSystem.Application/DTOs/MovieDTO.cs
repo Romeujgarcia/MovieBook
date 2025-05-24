@@ -8,11 +8,8 @@ namespace MovieBookingSystem.Application.DTOs
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public int DurationMinutes { get; set; }
-        public string Director { get; set; }
         public string PosterUrl { get; set; }
-        public string TrailerUrl { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public int DurationMinutes { get; set; }
         public List<GenreDto> Genres { get; set; }
     }
 
@@ -20,23 +17,17 @@ namespace MovieBookingSystem.Application.DTOs
     {
         public string Title { get; set; }
         public string Description { get; set; }
+        public string PosterUrl { get; set; }
         public int DurationMinutes { get; set; }
-        public string Director { get; set; }
-        public string PosterUrl { get; set; } // Este é o campo que você está enviando
-        public string TrailerUrl { get; set; }
-        public DateTime ReleaseDate { get; set; }
-        public List<Guid> GenreIds { get; set; }
+        public List<Guid> GenreIds { get; set; } = new List<Guid>(); // Initialize to an empty list
     }
 
     public class UpdateMovieDto
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public int DurationMinutes { get; set; }
-        public string Director { get; set; }
         public string PosterUrl { get; set; }
-        public string TrailerUrl { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public int DurationMinutes { get; set; }
         public List<Guid> GenreIds { get; set; }
     }
 }

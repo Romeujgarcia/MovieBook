@@ -10,11 +10,4 @@ namespace MovieBookingSystem.Application.DTOs
         public int SeatNumber { get; set; }
         public bool IsReserved { get; set; }
     }
-
-    public class CreateSeatDto
-    {
-        public Guid ShowtimeId { get; set; }
-        public string Row { get; set; }
-        public int SeatNumber { get; set; }
-    }
 }

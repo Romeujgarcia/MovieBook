@@ -4,7 +4,11 @@ using Microsoft.Extensions.DependencyInjection;
 using MovieBookingSystem.Domain.Interfaces;
 using MovieBookingSystem.Infrastructure.Data;
 using MovieBookingSystem.Infrastructure.Repositories;
-using MovieBookingSystem.Infrastructure.Services; 
+using MovieBookingSystem.Infrastructure.Identity;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+
 
 namespace MovieBookingSystem.Infrastructure
 {

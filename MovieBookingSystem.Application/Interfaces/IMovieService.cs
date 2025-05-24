@@ -7,13 +7,12 @@ namespace MovieBookingSystem.Application.Interfaces
 {
     public interface IMovieService
     {
+        Task<List<MovieDto>> GetAllAsync();
         Task<MovieDto> GetByIdAsync(Guid id);
-        Task<IEnumerable<MovieDto>> GetAllAsync();
-        Task<IEnumerable<MovieDto>> GetByGenreAsync(Guid genreId);
-        Task<MovieDto> CreateAsync(CreateMovieDto createDto);
-        Task<MovieDto> UpdateAsync(Guid id, UpdateMovieDto updateDto);
+        Task<List<MovieDto>> GetByGenreAsync(Guid genreId);
+        Task<List<MovieDto>> SearchAsync(string term);
+        Task<MovieDto> AddAsync(CreateMovieDto createMovieDto);
+        Task<MovieDto> UpdateAsync(Guid id, UpdateMovieDto updateMovieDto);
         Task DeleteAsync(Guid id);
-        Task<IEnumerable<MovieDto>> GetByGenreIdAsync(Guid genreId);
-        Task<IEnumerable<MovieDto>> SearchByTitleAsync(string title);
     }
 }

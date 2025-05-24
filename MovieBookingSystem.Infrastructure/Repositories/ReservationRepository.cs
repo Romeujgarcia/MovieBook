@@ -7,87 +7,67 @@ using MovieBookingSystem.Domain.Entities;
 using MovieBookingSystem.Domain.Interfaces;
 using MovieBookingSystem.Infrastructure.Data;
 
-namespace MovieBookingSystem.Infrastructure.Repositories
+public class ReservationRepository : IReservationRepository
 {
-    public class ReservationRepository : IReservationRepository
+    private readonly MovieBookingDbContext _context;
+
+    public ReservationRepository(MovieBookingDbContext context)
     {
-        private readonly MovieBookingDbContext _context;
+        _context = context;
+    }
 
-        public ReservationRepository(MovieBookingDbContext context)
-        {
-            _context = context;
-        }
+    public async Task<Reservation> GetByIdAsync(Guid id)
+    {
+        return await _context.Reservations
+            .Include(r => r.User)
+            .Include(r => r.Showtime)
+            .ThenInclude(s => s.Movie)
+            .Include(r => r.ReservationSeats)
+            .ThenInclude(rs => rs.Seat)
+            .FirstOrDefaultAsync(r => r.Id == id);
+    }
 
-        public async Task<Reservation> GetByIdAsync(Guid id)
-        {
-            return await _context.Reservations
-                .Include(r => r.User)
-                .Include(r => r.Showtime)
-                .ThenInclude(s => s.Movie)
-                .Include(r => r.ReservationSeats)
-                .ThenInclude(rs => rs.Seat)
-                .FirstOrDefaultAsync(r => r.Id == id);
-        }
+    public async Task<IList<Reservation>> GetAllAsync() // Corrigido para IList<Reservation>
+    {
+        return await _context.Reservations
+            .Include(r => r.User)
+            .Include(r => r.Showtime)
+            .ThenInclude(s => s.Movie)
+            .ToListAsync();
+    }
 
-        public async Task<IEnumerable<Reservation>> GetAllAsync()
-        {
-            return await _context.Reservations
-                .Include(r => r.User)
-                .Include(r => r.Showtime)
-                .ThenInclude(s => s.Movie)
-                .ToListAsync();
-        }
+    public async Task<IList<Reservation>> GetByUserIdAsync(Guid userId) // Corrigido para IList<Reservation>
+    {
+        return await _context.Reservations
+            .Include(r => r.Showtime)
+            .ThenInclude(s => s.Movie)
+            .Include(r => r.ReservationSeats)
+            .ThenInclude(rs => rs.Seat)
+            .Where(r => r.UserId == userId)
+            .ToListAsync();
+    }
 
-        public async Task<IEnumerable<Reservation>> GetByUserIdAsync(Guid userId)
-        {
-            return await _context.Reservations
-                .Include(r => r.Showtime)
-                .ThenInclude(s => s.Movie)
-                .Include(r => r.ReservationSeats)
-                .ThenInclude(rs => rs.Seat)
-                .Where(r => r.UserId == userId)
-                .ToListAsync();
-        }
+    public async Task<Reservation> AddAsync(Reservation reservation)
+    {
+        await _context.Reservations.AddAsync(reservation);
+        return reservation;
+    }
 
-        public async Task<IEnumerable<Reservation>> GetByShowtimeIdAsync(Guid showtimeId)
-        {
-            return await _context.Reservations
-                .Include(r => r.User)
-                .Include(r => r.ReservationSeats)
-                .ThenInclude(rs => rs.Seat)
-                .Where(r => r.ShowtimeId == showtimeId)
-                .ToListAsync();
-        }
+    public async Task<Reservation> UpdateAsync(Reservation reservation) // Corrigido para retornar Reservation
+    {
+        _context.Entry(reservation).State = EntityState.Modified;
+        await _context.SaveChangesAsync(); // Salvar as alterações
+        return reservation; // Retornar a reserva atualizada
+    }
 
-        public async Task<IEnumerable<Reservation>> GetActiveReservationsByUserIdAsync(Guid userId)
+    public async Task DeleteAsync(Guid reservationId) // Alterado para aceitar Guid
+    {
+        var reservation = await GetByIdAsync(reservationId); // Busca a reserva pelo ID
+        if (reservation != null)
         {
-            return await _context.Reservations
-                .Include(r => r.Showtime)
-                .ThenInclude(s => s.Movie)
-                .Include(r => r.ReservationSeats)
-                .ThenInclude(rs => rs.Seat)
-                .Where(r => r.UserId == userId && r.Status == ReservationStatus.Confirmed && r.Showtime.StartTime > DateTime.Now)
-                .ToListAsync();
-        }
-
-        public async Task<Reservation> AddAsync(Reservation reservation)
-        {
-            await _context.Reservations.AddAsync(reservation);
-            return reservation;
-        }
-
-        public async Task UpdateAsync(Reservation reservation)
-        {
-            _context.Entry(reservation).State = EntityState.Modified;
-        }
-
-        public async Task DeleteAsync(Guid id)
-        {
-            var reservation = await _context.Reservations.FindAsync(id);
-            if (reservation != null)
-            {
-                _context.Reservations.Remove(reservation);
-            }
+            _context.Reservations.Remove(reservation);
+            await _context.SaveChangesAsync();
         }
     }
+
 }

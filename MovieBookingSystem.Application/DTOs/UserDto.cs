@@ -7,10 +7,8 @@ namespace MovieBookingSystem.Application.DTOs
         public Guid Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
-        public bool IsAdmin { get; set; } // Add this line if you need IsAdmin
         public string FullName { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public List<string> Roles { get; set; } = new List<string>();
+        public bool IsAdmin { get; set; }
     }
 
     public class RegisterUserDto
@@ -19,29 +17,30 @@ namespace MovieBookingSystem.Application.DTOs
         public string Email { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }
-        //public bool IsAdmin { get; set; } // Nova propriedade para indicar se é admin
-    }
 
-    public class UpdateUserDto
-    {
-        public string Email { get; set; }
-        public string FullName { get; set; }
-        public string CurrentPassword { get; set; }
-        public string NewPassword { get; set; }
     }
 
     public class LoginUserDto
     {
         public string Email { get; set; }
         public string Password { get; set; }
-       
-
-        
     }
 
-    public class LoginResponseDto
+    public class UpdateUserDto
     {
-        public UserDto User { get; set; } // Include the user information
-        public string Token { get; set; } // Include the token
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public string CurrentPassword { get; set; } // Adicionada
+        public string NewPassword { get; set; } // Adicionada
+        public string FullName { get; set; }
+    }
+
+   public class LoginResponseDto
+    {
+        public Guid UserId { get; set; } // Adicionada
+        public string Email { get; set; } // Adicionada
+        public string FullName { get; set; } // Adicionada
+        public string Token { get; set; }
+        public DateTime Expiration { get; set; }
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-
 namespace MovieBookingSystem.Domain.Entities
 {
     public class Reservation
@@ -13,17 +12,10 @@ namespace MovieBookingSystem.Domain.Entities
         public ReservationStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
-        
-        // Relacionamentos
+
+        // Relationships
         public User User { get; set; }
         public Showtime Showtime { get; set; }
-        public ICollection<ReservationSeat> ReservationSeats { get; set; }
-    }
-    
-    public enum ReservationStatus
-    {
-        Pending,
-        Confirmed,
-        Cancelled
+        public ICollection<ReservationSeat> ReservationSeats { get; set; } = new List<ReservationSeat>();
     }
 }

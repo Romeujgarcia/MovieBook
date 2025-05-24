@@ -26,6 +26,7 @@ namespace MovieBookingSystem.Application
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IShowtimeService, ShowtimeService>(); 
             services.AddScoped<IReservationService, ReservationService>();
+            services.AddScoped<IAuthService, AuthService>();
 
             return services;
         }

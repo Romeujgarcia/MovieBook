@@ -22,7 +22,7 @@ namespace MovieBookingSystem.Infrastructure.Repositories
             return await _context.Genres.FindAsync(id);
         }
 
-        public async Task<IEnumerable<Genre>> GetAllAsync()
+        public async Task<IList<Genre>> GetAllAsync()
         {
             return await _context.Genres.ToListAsync();
         }
@@ -30,20 +30,23 @@ namespace MovieBookingSystem.Infrastructure.Repositories
         public async Task<Genre> AddAsync(Genre genre)
         {
             await _context.Genres.AddAsync(genre);
+            await _context.SaveChangesAsync(); // Salvar as alterações
             return genre;
         }
 
-        public async Task UpdateAsync(Genre genre)
+        public async Task<Genre> UpdateAsync(Genre genre) // Corrigido para retornar Genre
         {
             _context.Entry(genre).State = EntityState.Modified;
+            await _context.SaveChangesAsync(); // Salvar as alterações
+            return genre; // Retornar o gênero atualizado
         }
 
-        public async Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(Genre genre) // Corrigido para receber Genre
         {
-            var genre = await _context.Genres.FindAsync(id);
             if (genre != null)
             {
                 _context.Genres.Remove(genre);
+                await _context.SaveChangesAsync(); // Salvar as alterações
             }
         }
     }

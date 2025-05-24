@@ -9,7 +9,10 @@ namespace MovieBookingSystem.Domain.Entities
         public Guid Id { get; set; }
         public Guid MovieId { get; set; }
         public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; } // Add this property
+        public string Hall { get; set; } // Add this property
         public decimal Price { get; set; }
+        public decimal TicketPrice { get; set; } // Add this property for backward compatibility
         public int TotalSeats { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }

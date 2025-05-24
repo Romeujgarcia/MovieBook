@@ -5,8 +5,11 @@ using MovieBookingSystem.Application.DTOs;
 using MovieBookingSystem.Application.Interfaces;
 using MovieBookingSystem.Domain.Interfaces;
 using MovieBookingSystem.Domain.Entities;
+using MovieBookingSystem.Infrastructure.Identity;
+using MovieBookingSystem.Application.Services;
 using System;
 using System.Threading.Tasks;
+
 
 namespace MovieBookingSystem.Api.Controllers
 {
@@ -16,13 +19,14 @@ namespace MovieBookingSystem.Api.Controllers
     {
         private readonly IUserService _userService;
 
-        private readonly IJwtService _jwtService;
+        private readonly IAuthService _authService;
 
-        public UsersController(IUserService userService, IJwtService jwtService)
+        public UsersController(IUserService userService, IAuthService authService)
         {
             _userService = userService;
-            _jwtService = jwtService;
+            _authService = authService;
         }
+
 
         /// <summary>
         /// Registra um novo usuário
@@ -45,33 +49,20 @@ namespace MovieBookingSystem.Api.Controllers
         [ProducesResponseType(typeof(ApiResponse), 401)]
         public async Task<IActionResult> Login([FromBody] LoginUserDto loginDto)
         {
-            // Obter o UserDto do serviço
-            var result = await _userService.LoginAsync(loginDto.Email, loginDto.Password);
-
-            // Criar um User para passar para o gerador de token
-            var user = new User
+            try
             {
-                Id = result.Id, // Accessing the Id directly from result
-                UserName = result.UserName,
-                Email = result.Email,
-                IsAdmin = result.IsAdmin, // Ensure this property exists in UserDto
-                FullName = result.FullName,
-                CreatedAt = result.CreatedAt
-            };
-
-            var token = _jwtService.GenerateToken(user, result.Roles); // Use the user object created above
-
-            // Create the response DTO
-            var response = new LoginResponseDto
+                var result = await _authService.LoginAsync(loginDto.Email, loginDto.Password);
+                return Ok(ApiResponse.SuccessResponse("Login successful", result));
+            }
+            catch (UnauthorizedAccessException ex)
             {
-                User = result, // Assign the UserDto
-                Token = token // Assign the generated token
-            };
-
-            return Ok(ApiResponse.SuccessResponse("Login successful", response));
+                return Unauthorized(ApiResponse.ErrorResponse(ex.Message));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ApiResponse.ErrorResponse("An error occurred during login. Please try again."));
+            }
         }
-
-
 
 
         /// <summary> 
@@ -83,18 +74,18 @@ namespace MovieBookingSystem.Api.Controllers
         [ProducesResponseType(typeof(ApiResponse), 401)]
         public async Task<IActionResult> GetProfile()
         {
- 
+
             if (!HttpContext.Items.ContainsKey("UserId"))
-    {
-        return Unauthorized("User  not authenticated.");
-    }
-    var userId = (Guid)HttpContext.Items["UserId"];
-    var user = await _userService.GetByIdAsync(userId);
-    
-    if (user == null)
-    {
-        return NotFound("User  not found.");
-    }
+            {
+                return Unauthorized("User  not authenticated.");
+            }
+            var userId = (Guid)HttpContext.Items["UserId"];
+            var user = await _userService.GetByIdAsync(userId);
+
+            if (user == null)
+            {
+                return NotFound("User  not found.");
+            }
             return Ok(ApiResponse.SuccessResponse("User profile retrieved successfully", user));
         }
 

@@ -8,11 +8,10 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1"/>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.0"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MovieBookingSystem.Application\MovieBookingSystem.Application.csproj"/>
-    <ProjectReference Include="..\MovieBookingSystem.Infrastructure\MovieBookingSystem.Infrastructure.csproj" />
-
+    <ProjectReference Include="..\MovieBookingSystem.Infrastructure\MovieBookingSystem.Infrastructure.csproj"/>
   </ItemGroup>
 </Project>
- 

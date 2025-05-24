@@ -52,7 +52,7 @@ namespace MovieBookingSystem.Api.Controllers
         [ProducesResponseType(typeof(ApiResponse), 401)]
         public async Task<IActionResult> Create([FromBody] CreateMovieDto createDto)
         {
-            var movie = await _movieService.CreateAsync(createDto);
+            var movie = await _movieService.AddAsync(createDto);
             return CreatedAtAction(nameof(GetById), new { id = movie.Id }, 
                 ApiResponse.SuccessResponse("Movie created successfully", movie));
         }
@@ -93,7 +93,7 @@ namespace MovieBookingSystem.Api.Controllers
         [ProducesResponseType(typeof(ApiResponse), 200)]
         public async Task<IActionResult> Search([FromQuery] string title)
         {
-            var movies = await _movieService.SearchByTitleAsync(title);
+            var movies = await _movieService.SearchAsync(title);
             return Ok(ApiResponse.SuccessResponse("Movies search completed", movies));
         }
 
@@ -104,7 +104,7 @@ namespace MovieBookingSystem.Api.Controllers
         [ProducesResponseType(typeof(ApiResponse), 200)]
         public async Task<IActionResult> GetByGenre(Guid genreId)
         {
-            var movies = await _movieService.GetByGenreIdAsync(genreId);
+            var movies = await _movieService.GetByGenreAsync(genreId);
             return Ok(ApiResponse.SuccessResponse("Movies by genre retrieved successfully", movies));
         }
     }

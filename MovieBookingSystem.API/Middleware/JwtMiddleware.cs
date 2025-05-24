@@ -5,26 +5,28 @@ using MovieBookingSystem.Application.Settings;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Security.Claims; // Adicione esta linha para importar o namespace ClaimTypes
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace MovieBookingSystem.Api.Middleware
 {
     public class JwtMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly JwtSettings _jwtSettings;
+        private readonly IConfiguration _configuration;
 
-        public JwtMiddleware(RequestDelegate next, IOptions<JwtSettings> jwtSettings)
+        public JwtMiddleware(RequestDelegate next, IConfiguration configuration)
         {
             _next = next;
-            _jwtSettings = jwtSettings.Value;
+            _configuration = configuration;
         }
 
         public async Task InvokeAsync(HttpContext context)
         {
-            var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            var token = context.Request.Headers["Authorization"]
+                .FirstOrDefault()?.Split(" ").Last();
 
             if (token != null)
             {
@@ -39,32 +41,50 @@ namespace MovieBookingSystem.Api.Middleware
             try
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_jwtSettings.Secret);
+                var secretKey = _configuration["JwtSettings:Secret"];
+                
+                if (string.IsNullOrEmpty(secretKey))
+                {
+                    return;
+                }
+                
+                var key = Encoding.UTF8.GetBytes(secretKey);
 
                 tokenHandler.ValidateToken(token, new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = true,
-                    ValidIssuer = _jwtSettings.Issuer,
+                    ValidIssuer = _configuration["JwtSettings:Issuer"],
                     ValidateAudience = true,
-                    ValidAudience = _jwtSettings.Audience,
+                    ValidAudience = _configuration["JwtSettings:Audience"],
                     ValidateLifetime = true,
                     ClockSkew = TimeSpan.Zero
                 }, out SecurityToken validatedToken);
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
-                
-                // Agora ClaimTypes estará disponível
-                var userId = Guid.Parse(jwtToken.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value);
 
-                // Anexar o ID do usuário ao contexto para uso nos controladores
-                context.Items["UserId"] = userId;
+                // Try multiple claim types to get the user ID
+                var userIdClaim = jwtToken.Claims.FirstOrDefault(x => 
+                    x.Type == ClaimTypes.NameIdentifier || 
+                    x.Type == "sub" || 
+                    x.Type == "userId")?.Value;
+
+                if (!string.IsNullOrEmpty(userIdClaim) && Guid.TryParse(userIdClaim, out var userId))
+                {
+                    // Anexar o ID do usuário ao contexto para uso nos controladores
+                    context.Items["UserId"] = userId;
+
+                    // Also set the User principal for authorization
+                    var claims = jwtToken.Claims.Select(c => new Claim(c.Type, c.Value)).ToList();
+                    var identity = new ClaimsIdentity(claims, "jwt");
+                    context.User = new ClaimsPrincipal(identity);
+                }
             }
             catch (Exception ex)
             {
-                // Opcionalmente, adicione log do erro
-                // _logger.LogError($"JWT Token validation failed: {ex.Message}");
+                // Log the error if you have logging configured
+                // Console.WriteLine($"JWT Token validation failed: {ex.Message}");
                 // Falha na validação do token - não anexar nada ao contexto
             }
         }

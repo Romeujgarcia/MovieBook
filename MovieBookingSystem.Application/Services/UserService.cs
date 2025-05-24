@@ -1,14 +1,13 @@
-using AutoMapper;
 using MovieBookingSystem.Application.DTOs;
 using MovieBookingSystem.Application.Interfaces;
 using MovieBookingSystem.Domain.Entities;
 using MovieBookingSystem.Domain.Interfaces;
-using MovieBookingSystem.Infrastructure.Services;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
+using MovieBookingSystem.Infrastructure.Identity;
+using AppException = MovieBookingSystem.Application.Common.Exceptions.ApplicationException;
 
 namespace MovieBookingSystem.Application.Services
 {
@@ -23,30 +22,6 @@ namespace MovieBookingSystem.Application.Services
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _passwordHasher = passwordHasher;
-        }
-
-        public async Task<UserDto> GetByIdAsync(Guid id)
-        {
-            var user = await _unitOfWork.Users.GetByIdAsync(id);
-            return _mapper.Map<UserDto>(user);
-        }
-
-        public async Task<UserDto> GetByEmailAsync(string email)
-        {
-            var user = await _unitOfWork.Users.GetByEmailAsync(email);
-            return _mapper.Map<UserDto>(user);
-        }
-
-        public async Task<UserDto> GetByUsernameAsync(string username)
-        {
-            var user = await _unitOfWork.Users.GetByUsernameAsync(username);
-            return _mapper.Map<UserDto>(user);
-        }
-
-        public async Task<IEnumerable<UserDto>> GetAllAsync()
-        {
-            var users = await _unitOfWork.Users.GetAllAsync();
-            return _mapper.Map<IEnumerable<UserDto>>(users);
         }
 
         public async Task<UserDto> RegisterAsync(RegisterUserDto registerDto)
@@ -65,9 +40,6 @@ namespace MovieBookingSystem.Application.Services
             user.Id = Guid.NewGuid();
             user.CreatedAt = DateTime.UtcNow;
 
-             // Set IsAdmin based on the DTO
-            //user.IsAdmin = registerDto.IsAdmin; // Define se é admin com base no DTO
-
             // Hash the password
             user.PasswordHash = _passwordHasher.HashPassword(registerDto.Password);
 
@@ -78,9 +50,21 @@ namespace MovieBookingSystem.Application.Services
             return _mapper.Map<UserDto>(user);
         }
 
-        public async Task<UserDto> UpdateAsync(Guid id, UpdateUserDto updateDto)
+        public async Task<UserDto> GetByIdAsync(Guid userId)
         {
-            var user = await _unitOfWork.Users.GetByIdAsync(id);
+            var user = await _unitOfWork.Users.GetByIdAsync(userId);
+            return _mapper.Map<UserDto>(user);
+        }
+
+        public async Task<IEnumerable<UserDto>> GetAllAsync()
+        {
+            var users = await _unitOfWork.Users.GetAllAsync();
+            return _mapper.Map<IEnumerable<UserDto>>(users);
+        }
+
+        public async Task<UserDto> UpdateAsync(Guid userId, UpdateUserDto updateDto)
+        {
+            var user = await _unitOfWork.Users.GetByIdAsync(userId);
             if (user == null)
                 throw new ApplicationException("User not found");
 
@@ -103,7 +87,7 @@ namespace MovieBookingSystem.Application.Services
             {
                 // Check if email is already used by another user
                 var existingUser = await _unitOfWork.Users.GetByEmailAsync(updateDto.Email);
-                if (existingUser != null && existingUser.Id != id)
+                if (existingUser != null && existingUser.Id != userId)
                     throw new ApplicationException("Email already registered by another user");
 
                 user.Email = updateDto.Email;
@@ -118,38 +102,30 @@ namespace MovieBookingSystem.Application.Services
             return _mapper.Map<UserDto>(user);
         }
 
-        public async Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(Guid userId)
         {
-            await _unitOfWork.Users.DeleteAsync(id);
+            var user = await _unitOfWork.Users.GetByIdAsync(userId);
+            if (user == null)
+                throw new ApplicationException("User not found");
+
+            await _unitOfWork.Users.DeleteAsync(user);
             await _unitOfWork.CompleteAsync();
         }
 
-        public async Task<bool> ValidateCredentialsAsync(string email, string password)
+        public async Task<LoginResponseDto> AuthenticateAsync(LoginUserDto loginDto)
         {
-            var user = await _unitOfWork.Users.GetByEmailAsync(email);
-            if (user == null) 
-                return false;
+            var user = await _unitOfWork.Users.GetByEmailAsync(loginDto.Email);
+            if (user == null || !_passwordHasher.VerifyPassword(loginDto.Password, user.PasswordHash))
+                throw new ApplicationException("Invalid email or password");
 
-            return _passwordHasher.VerifyPassword(password, user.PasswordHash);
+            return new LoginResponseDto
+            {
+                UserId = user.Id,
+                Email = user.Email,
+                FullName = user.FullName,
+                // Outros dados que desejar retornar
+            };
         }
-
-
-        public async Task<IEnumerable<ShowtimeDto>> GetByMovieAndDateAsync(Guid movieId, DateTime date)
-        {
-            var showtimes = await _unitOfWork.Showtimes.GetByMovieIdAndDateAsync(movieId, date);
-            return _mapper.Map<IEnumerable<ShowtimeDto>>(showtimes);
-        }
-
-        public async Task<UserDto> LoginAsync(string email, string password)
-        {
-            // Changed from username to email to match the interface
-            var user = await _unitOfWork.Users.GetByEmailAsync(email);
-            if (user == null || !_passwordHasher.VerifyPassword(user.PasswordHash, password))// Use _passwordHasher
-                return null;
-
-            return _mapper.Map<UserDto>(user);
-        }
-
     }
-}   
- 
+}
+

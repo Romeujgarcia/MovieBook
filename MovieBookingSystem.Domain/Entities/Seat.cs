@@ -10,9 +10,12 @@ namespace MovieBookingSystem.Domain.Entities
         public string Row { get; set; } // A, B, C, ...
         public int SeatNumber { get; set; }   // 1, 2, 3, ...
         public bool IsReserved { get; set; }
-        
+        public bool IsAvailable { get; set; } = true; // Add this property with default value
+        public SeatType Type { get; set; } = SeatType.Regular; // Add this property
+
         // Relacionamentos
         public Showtime Showtime { get; set; }
         public ICollection<ReservationSeat> ReservationSeats { get; set; }
     }
+   
 }

@@ -8,9 +8,6 @@ namespace MovieBookingSystem.Application.Validators
     {
         public CreateReservationDtoValidator()
         {
-            RuleFor(x => x.UserId)
-                .NotEmpty().WithMessage("User ID is required");
-
             RuleFor(x => x.ShowtimeId)
                 .NotEmpty().WithMessage("Showtime ID is required");
 

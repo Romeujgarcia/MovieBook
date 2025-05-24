@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lC99A2LsOh/dLF+/fAagq560ljKlxOl8TfiHQL5qBS5tR3vNmsMHUYP++XAXRcscNySdA382al7mAMxLNy8n9A==",
+  "dgSpecHash": "XVo8pJG3jukizdICRy3+2sBpRAGJC6ZKZUfXhDGJZYNF2nf4CMgaZxzCJJTjNihU9BHqaRdx+U3ZK+edWax3Zg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.API\\MovieBookingSystem.API.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,7 @@
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.0\\microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.0\\microsoft.entityframeworkcore.analyzers.6.0.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.0\\microsoft.entityframeworkcore.design.6.0.0.nupkg.sha512",
+    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\6.0.0\\microsoft.entityframeworkcore.inmemory.6.0.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.0\\microsoft.entityframeworkcore.relational.6.0.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.0\\microsoft.entityframeworkcore.sqlserver.6.0.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.0\\microsoft.entityframeworkcore.tools.6.0.0.nupkg.sha512",

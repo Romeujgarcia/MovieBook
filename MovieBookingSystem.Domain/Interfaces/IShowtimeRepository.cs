@@ -7,10 +7,10 @@ namespace MovieBookingSystem.Domain.Interfaces
 {
     public interface IShowtimeRepository
     {
-        Task<Showtime> GetByIdAsync(Guid id);
         Task<IEnumerable<Showtime>> GetAllAsync();
-        Task<IEnumerable<Showtime>> GetByDateAsync(DateTime date);
+        Task<Showtime> GetByIdAsync(Guid id);
         Task<IEnumerable<Showtime>> GetByMovieIdAsync(Guid movieId);
+        Task<IEnumerable<Showtime>> GetByDateAsync(DateTime date);
         Task<IEnumerable<Showtime>> GetByMovieIdAndDateAsync(Guid movieId, DateTime date);
         Task<Showtime> AddAsync(Showtime showtime);
         Task UpdateAsync(Showtime showtime);

@@ -3,6 +3,7 @@ using MovieBookingSystem.Application.DTOs;
 using MovieBookingSystem.Application.Interfaces;
 using MovieBookingSystem.Domain.Entities;
 using MovieBookingSystem.Domain.Interfaces;
+using MovieBookingSystem.Application.Common.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -60,35 +61,67 @@ namespace MovieBookingSystem.Application.Services
             var showtimes = await _unitOfWork.Showtimes.GetByMovieIdAndDateAsync(movieId, date);
             return _mapper.Map<IEnumerable<ShowtimeDto>>(showtimes);
         }
+       public async Task<ShowtimeDto> CreateAsync(CreateShowtimeDto createDto)
+{
+    // Validate input
+    if (createDto.MovieId == Guid.Empty)
+        throw new ArgumentException("MovieId cannot be empty", nameof(createDto.MovieId));
 
-        public async Task<ShowtimeDto> CreateAsync(CreateShowtimeDto createDto)
+    // Validate movie exists with more detailed error information
+    var movie = await _unitOfWork.Movies.GetByIdAsync(createDto.MovieId);
+    if (movie == null)
+    {
+        // Get all available movies for better error message
+        var availableMovies = await _unitOfWork.Movies.GetAllAsync();
+        var availableMovieInfo = availableMovies.Select(m => new { m.Id, m.Title }).ToList();
+        
+        var errorMessage = $"Movie with ID '{createDto.MovieId}' not found. ";
+        if (availableMovieInfo.Any())
         {
-            // Validate movie exists
-            var movie = await _unitOfWork.Movies.GetByIdAsync(createDto.MovieId);
-            if (movie == null)
-                throw new ApplicationException("Movie not found");
-
-            // Create showtime
-            var showtime = _mapper.Map<Showtime>(createDto);
-            showtime.Id = Guid.NewGuid();
-
-            await _unitOfWork.Showtimes.AddAsync(showtime);
-            await _unitOfWork.CompleteAsync();
-
-            // Create seats for this showtime
-            await CreateSeatsForShowtime(showtime.Id, createDto.TotalRows, createDto.SeatsPerRow);
-
-            // Get complete showtime with seats
-            var createdShowtime = await _unitOfWork.Showtimes.GetByIdAsync(showtime.Id);
-            var result = _mapper.Map<ShowtimeDto>(createdShowtime);
-
-            // Get seat counts
-            var seats = await _unitOfWork.Seats.GetByShowtimeIdAsync(showtime.Id);
-            result.TotalSeats = seats != null ? seats.Count() : 0;
-            result.AvailableSeats = result.TotalSeats;  // All seats are available initially
-
-            return result;
+            errorMessage += $"Available movies: {string.Join(", ", availableMovieInfo.Select(m => $"{m.Title} ({m.Id})"))}";
         }
+        else
+        {
+            errorMessage += "No movies are currently available in the system.";
+        }
+        
+        throw new NotFoundException(errorMessage, createDto.MovieId);
+    }
+
+    // Validate showtime doesn't conflict with existing ones
+    var existingShowtimes = await _unitOfWork.Showtimes.GetByMovieIdAndDateAsync(createDto.MovieId, createDto.StartTime.Date);
+    var conflictingShowtime = existingShowtimes.FirstOrDefault(s => 
+        s.Hall == createDto.Theater && 
+        Math.Abs((s.StartTime - createDto.StartTime).TotalMinutes) < movie.DurationMinutes + 30); // 30 min buffer
+
+    if (conflictingShowtime != null)
+    {
+        throw new InvalidOperationException(
+            $"Showtime conflicts with existing showtime in {createDto.Theater} at {conflictingShowtime.StartTime:yyyy-MM-dd HH:mm}. " +
+            $"Please choose a different time or theater.");
+    }
+
+    // Create showtime
+    var showtime = _mapper.Map<Showtime>(createDto);
+    showtime.Id = Guid.NewGuid();
+
+    await _unitOfWork.Showtimes.AddAsync(showtime);
+    await _unitOfWork.CompleteAsync();
+
+    // Create seats for this showtime
+    await CreateSeatsForShowtime(showtime.Id, createDto.TotalRows, createDto.SeatsPerRow);
+
+    // Get complete showtime with seats
+    var createdShowtime = await _unitOfWork.Showtimes.GetByIdAsync(showtime.Id);
+    var result = _mapper.Map<ShowtimeDto>(createdShowtime);
+
+    // Get seat counts
+    var seats = await _unitOfWork.Seats.GetByShowtimeIdAsync(showtime.Id);
+    result.TotalSeats = seats != null ? seats.Count() : 0;
+    result.AvailableSeats = result.TotalSeats;  // All seats are available initially
+
+    return result;
+}
 
         private async Task CreateSeatsForShowtime(Guid showtimeId, int totalRows, int seatsPerRow)
         {
@@ -121,7 +154,7 @@ namespace MovieBookingSystem.Application.Services
         {
             var showtime = await _unitOfWork.Showtimes.GetByIdAsync(id);
             if (showtime == null)
-                throw new ApplicationException("Showtime not found");
+                throw new NotFoundException("Showtime", id);
 
             _mapper.Map(updateDto, showtime);
             await _unitOfWork.Showtimes.UpdateAsync(showtime);

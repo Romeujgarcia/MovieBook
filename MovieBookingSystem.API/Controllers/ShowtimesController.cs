@@ -26,7 +26,7 @@ namespace MovieBookingSystem.Api.Controllers
         [ProducesResponseType(typeof(ApiResponse), 200)]
         public async Task<IActionResult> GetAll([FromQuery] DateTime? date = null)
         {
-            var showtimes = date.HasValue 
+            var showtimes = date.HasValue
                 ? await _showtimeService.GetByDateAsync(date.Value)
                 : await _showtimeService.GetAllAsync();
 
@@ -70,7 +70,7 @@ namespace MovieBookingSystem.Api.Controllers
         public async Task<IActionResult> Create([FromBody] CreateShowtimeDto createDto)
         {
             var showtime = await _showtimeService.CreateAsync(createDto);
-            return CreatedAtAction(nameof(GetById), new { id = showtime.Id }, 
+            return CreatedAtAction(nameof(GetById), new { id = showtime.Id },
                 ApiResponse.SuccessResponse("Showtime created successfully", showtime));
         }
 

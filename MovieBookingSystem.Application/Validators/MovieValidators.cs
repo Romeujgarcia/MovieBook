@@ -18,12 +18,10 @@ namespace MovieBookingSystem.Application.Validators
             RuleFor(x => x.DurationMinutes)
                 .GreaterThan(0).WithMessage("Duration must be greater than 0 minutes");
 
-            RuleFor(x => x.Director)
-                .NotEmpty().WithMessage("Director is required")
-                .MaximumLength(100).WithMessage("Director name cannot exceed 100 characters");
+            RuleFor(x => x.PosterUrl)
+                .NotEmpty().WithMessage("Poster URL is required")
+                .Must(url => Uri.IsWellFormedUriString(url, UriKind.Absolute)).WithMessage("Invalid URL format");       
 
-            RuleFor(x => x.ReleaseDate)
-                .NotEmpty().WithMessage("Release date is required");
 
             RuleFor(x => x.GenreIds)
                 .NotEmpty().WithMessage("At least one genre must be selected");
@@ -44,12 +42,9 @@ namespace MovieBookingSystem.Application.Validators
             RuleFor(x => x.DurationMinutes)
                 .GreaterThan(0).WithMessage("Duration must be greater than 0 minutes");
 
-            RuleFor(x => x.Director)
-                .NotEmpty().WithMessage("Director is required")
-                .MaximumLength(100).WithMessage("Director name cannot exceed 100 characters");
-
-            RuleFor(x => x.ReleaseDate)
-                .NotEmpty().WithMessage("Release date is required");
+            RuleFor(x => x.PosterUrl)       
+                .NotEmpty().WithMessage("Poster URL is required")
+                .Must(url => Uri.IsWellFormedUriString(url, UriKind.Absolute)).WithMessage("Invalid URL format");
         }
     }
 }

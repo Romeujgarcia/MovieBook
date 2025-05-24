@@ -59,7 +59,10 @@ namespace MovieBookingSystem.Application.Services
 
         public async Task DeleteAsync(Guid id)
         {
-            await _unitOfWork.Genres.DeleteAsync(id);
+            var genre = await _unitOfWork.Genres.GetByIdAsync(id);
+            if (genre == null)
+                throw new ApplicationException("Genre not found");  
+            await _unitOfWork.Genres.DeleteAsync(genre);
             await _unitOfWork.CompleteAsync();
         }
     }

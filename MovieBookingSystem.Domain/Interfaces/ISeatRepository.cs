@@ -7,15 +7,14 @@ namespace MovieBookingSystem.Domain.Interfaces
 {
     public interface ISeatRepository
     {
+        Task<IList<Seat>> GetAllAsync();
         Task<Seat> GetByIdAsync(Guid id);
-        Task<IEnumerable<Seat>> GetAllAsync();
-        Task<IEnumerable<Seat>> GetByShowtimeIdAsync(Guid showtimeId);
-        Task<IEnumerable<Seat>> GetAvailableSeatsByShowtimeIdAsync(Guid showtimeId);
+        Task<IList<Seat>> GetByShowtimeIdAsync(Guid showtimeId);
+        Task<IList<Seat>> GetAvailableSeatsByShowtimeIdAsync(Guid showtimeId);
+        Task<IList<Seat>> GetByIdsAsync(IList<Guid> ids);
+        Task<bool> IsSeatAvailableAsync(Guid seatId);
         Task<Seat> AddAsync(Seat seat);
-        Task UpdateAsync(Seat seat);
-        Task DeleteAsync(Guid id);
-        Task<bool> ReserveSeatAsync(Guid seatId);
-        Task<bool> ReleaseSeatAsync(Guid seatId);
-        Task<IEnumerable<Seat>> GetByIdsAsync(IEnumerable<Guid> ids);
+        Task<Seat> UpdateAsync(Seat seat);
+        Task DeleteAsync(Seat seat);
     }
 }
