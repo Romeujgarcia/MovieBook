@@ -7,10 +7,10 @@ namespace MovieBookingSystem.Domain.Interfaces
 {
     public interface IGenreRepository
     {
+        Task<IList<Genre>> GetAllAsync();
         Task<Genre> GetByIdAsync(Guid id);
-        Task<IEnumerable<Genre>> GetAllAsync();
         Task<Genre> AddAsync(Genre genre);
-        Task UpdateAsync(Genre genre);
-        Task DeleteAsync(Guid id);
+        Task<Genre> UpdateAsync(Genre genre);
+        Task DeleteAsync(Genre genre);
     }
 }

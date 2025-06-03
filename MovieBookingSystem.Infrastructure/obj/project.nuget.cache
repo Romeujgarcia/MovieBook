@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "vwhJ0hXMFk0XA3NGbBwbzoNo4dwK4s+5gRKHb2ZLRzl9jzZgOMzSMi0DcPJZ2pCC4prk4pu10CZ2xxGm5prsjQ==",
-  "success": false,
+  "dgSpecHash": "c5WpnKE3UgDBcXQ3MtNiAYnaQ2FRUoZlGW5cNRzAtZc/wdRZLdFoGnoerjmgtMJ3FnNEk3M1qNR+WVHuVU/Vcg==",
+  "success": true,
   "projectFilePath": "C:\\Users\\Romeu Garcia\\Downloads\\Estudo\\Net  6\\MovieBook\\MovieBookingSystem.Infrastructure\\MovieBookingSystem.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
@@ -42,7 +42,7 @@
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
-    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.5.0\\system.identitymodel.tokens.jwt.6.5.0.nupkg.sha512",
+    "C:\\Users\\Romeu Garcia\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.8.0\\system.identitymodel.tokens.jwt.6.8.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\system.runtime.caching\\4.7.0\\system.runtime.caching.4.7.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
@@ -53,15 +53,5 @@
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\Romeu Garcia\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Detected package downgrade: System.IdentityModel.Tokens.Jwt from 6.8.0 to 6.5.0. Reference the package directly from the project to select a different version. \r\n MovieBookingSystem.Infrastructure -> Microsoft.EntityFrameworkCore.SqlServer 6.0.0 -> Microsoft.Data.SqlClient 2.1.4 -> Microsoft.IdentityModel.Protocols.OpenIdConnect 6.8.0 -> System.IdentityModel.Tokens.Jwt (>= 6.8.0) \r\n MovieBookingSystem.Infrastructure -> System.IdentityModel.Tokens.Jwt (>= 6.5.0)",
-      "libraryId": "System.IdentityModel.Tokens.Jwt",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

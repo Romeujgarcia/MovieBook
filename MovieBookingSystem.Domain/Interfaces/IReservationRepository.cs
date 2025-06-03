@@ -7,13 +7,11 @@ namespace MovieBookingSystem.Domain.Interfaces
 {
     public interface IReservationRepository
     {
+        Task<IList<Reservation>> GetAllAsync();
         Task<Reservation> GetByIdAsync(Guid id);
-        Task<IEnumerable<Reservation>> GetAllAsync();
-        Task<IEnumerable<Reservation>> GetByUserIdAsync(Guid userId);
-        Task<IEnumerable<Reservation>> GetByShowtimeIdAsync(Guid showtimeId);
-        Task<IEnumerable<Reservation>> GetActiveReservationsByUserIdAsync(Guid userId);
+        Task<IList<Reservation>> GetByUserIdAsync(Guid userId);
         Task<Reservation> AddAsync(Reservation reservation);
-        Task UpdateAsync(Reservation reservation);
-        Task DeleteAsync(Guid id);
+        Task<Reservation> UpdateAsync(Reservation reservation);
+        Task DeleteAsync(Guid reservationId);
     }
 }
