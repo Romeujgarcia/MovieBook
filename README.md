@@ -124,7 +124,7 @@ MovieBookingSystem/
 ## 🛠️ Tecnologias Utilizadas
 
 ### Core Technologies
-- ![.NET 6](https://img.shields.io/badge/.NET%208-512BD4?style=flat-square&logo=dotnet&logoColor=white) **.NET 6** - Framework principal
+- ![.NET 6](https://img.shields.io/badge/.NET%206-512BD4?style=flat-square&logo=dotnet&logoColor=white) **.NET 6** - Framework principal
 - ![C#](https://img.shields.io/badge/C%23%2012-239120?style=flat-square&logo=c-sharp&logoColor=white) **C# 12** - Linguagem de programação
 - ![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-512BD4?style=flat-square&logo=dotnet&logoColor=white) **ASP.NET Core** - Web API framework
 
