@@ -124,7 +124,7 @@ MovieBookingSystem/
 ## 🛠️ Tecnologias Utilizadas
 
 ### Core Technologies
-- ![.NET 8](https://img.shields.io/badge/.NET%208-512BD4?style=flat-square&logo=dotnet&logoColor=white) **.NET 8** - Framework principal
+- ![.NET 6](https://img.shields.io/badge/.NET%208-512BD4?style=flat-square&logo=dotnet&logoColor=white) **.NET 8** - Framework principal
 - ![C#](https://img.shields.io/badge/C%23%2012-239120?style=flat-square&logo=c-sharp&logoColor=white) **C# 12** - Linguagem de programação
 - ![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-512BD4?style=flat-square&logo=dotnet&logoColor=white) **ASP.NET Core** - Web API framework
 
@@ -152,7 +152,7 @@ MovieBookingSystem/
 
 Antes de executar o projeto, certifique-se de ter instalado:
 
-- ![.NET](https://img.shields.io/badge/.NET%208%20SDK-512BD4?style=flat-square&logo=dotnet&logoColor=white) [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- ![.NET](https://img.shields.io/badge/.NET%208%20SDK-512BD4?style=flat-square&logo=dotnet&logoColor=white) [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
 - ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat-square&logo=microsoft-sql-server&logoColor=white) [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) ou SQL Server LocalDB
 - ![Visual Studio](https://img.shields.io/badge/Visual%20Studio%202022-5C2D91?style=flat-square&logo=visual-studio&logoColor=white) [Visual Studio 2022](https://visualstudio.microsoft.com/) ou [VS Code](https://code.visualstudio.com/)
 
@@ -160,8 +160,8 @@ Antes de executar o projeto, certifique-se de ter instalado:
 
 ### 1. Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/movie-booking-system.git
-cd movie-booking-system
+git clone https://github.com/Romeujgarcia/MovieBook.git
+cd MovieBook
 ```
 
 ### 2. Restaure os pacotes NuGet
@@ -346,8 +346,8 @@ Este projeto está licenciado sob a **MIT License** - veja o arquivo [LICENSE](L
 
 **Desenvolvedor**: Romeu Garcia  
 **Email**: romeuJgarcia@hotmail.com  
-**LinkedIn**: [Seu LinkedIn](https://www.linkedin.com/in/romeugarcia/)  
-**GitHub**: [Seu GitHub](https://github.com/Romeujgarcia)
+**LinkedIn**: [Romeu Garcia](https://www.linkedin.com/in/romeugarcia/)  
+**GitHub**: [Romeu Garcia](https://github.com/Romeujgarcia)
 
 ---
 
