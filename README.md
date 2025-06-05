@@ -152,7 +152,7 @@ MovieBookingSystem/
 
 Antes de executar o projeto, certifique-se de ter instalado:
 
-- ![.NET](https://img.shields.io/badge/.NET%208%20SDK-512BD4?style=flat-square&logo=dotnet&logoColor=white) [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
+- ![.NET](https://img.shields.io/badge/.NET%206%20SDK-512BD4?style=flat-square&logo=dotnet&logoColor=white) [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
 - ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat-square&logo=microsoft-sql-server&logoColor=white) [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) ou SQL Server LocalDB
 - ![Visual Studio](https://img.shields.io/badge/Visual%20Studio%202022-5C2D91?style=flat-square&logo=visual-studio&logoColor=white) [Visual Studio 2022](https://visualstudio.microsoft.com/) ou [VS Code](https://code.visualstudio.com/)
 
